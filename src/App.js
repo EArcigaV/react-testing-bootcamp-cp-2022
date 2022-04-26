@@ -1,15 +1,31 @@
+import {
+  MainContainer,
+  HeaderClass,
+  ContentClass,
+  FooterClass,
+} from "./App.styles";
+
+import "./App.css";
 import Header from "./components/Header/Header";
 import Content from "./components/Content/Content";
+//import DayPicker from "./components/Content/DayPicker/DayPicker";
 import Footer from "./components/Footer/Footer";
-import "./App.css";
+//import BasicDatePicker from "./basicDatePicker";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Content />
-      <Footer />
-    </div>
+    <MainContainer>
+      <HeaderClass>
+        <Header />
+      </HeaderClass>
+      <ContentClass>
+        <Content />
+        {/* <BasicDatePicker /> */}
+      </ContentClass>
+      <FooterClass>
+        <Footer />
+      </FooterClass>
+    </MainContainer>
   );
 }
 
