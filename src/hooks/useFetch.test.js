@@ -10,4 +10,12 @@ test("it should have the correct  item Jason Dain", async () => {
   expect(findItem).toBeVisible();
 });
 
+test("it should have the correct  item 'Photo of the Day ( 2022-04-02 )'", async () => {
+  render(<Content />);
+  const findItem2 = await screen.findByRole("heading", {
+    name: "Photo of the Day ( 2022-04-02 )",
+  });
+  expect(findItem2).toBeVisible();
+});
+
 test.todo("should fetch correctly");

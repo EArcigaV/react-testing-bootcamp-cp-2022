@@ -40,7 +40,7 @@ export default function Content() {
         </DatePickerClass>
 
         <Figure>
-          <h2 title="photo-title">Photo of the Day ( {photoData.date} )</h2>
+          <h2 label="photo-title">Photo of the Day ( {photoData.date} )</h2>
           <h3>{photoData.copyright && `by: ${photoData.copyright}`}</h3>
           <img src={photoData.url} alt="dayPhoto" />
         </Figure>
