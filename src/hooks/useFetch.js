@@ -1,25 +1,21 @@
 import { useState, useEffect } from "react";
-
+import { getFormattedDate } from "../utils";
 function useFetch(date) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [photoData, setPhotoData] = useState("");
-
-  //const today = new Date();
-  //const [date, setDate] = useState(today);
-  //let formattedDate = date.toISOString().split("T")[0];
-  //let formattedDate = "2022-04-25";
+  const [photoData, setPhotoData] = useState({});
 
   useEffect(() => {
     setLoading(true);
-    //console.log(date);
 
-    const photoOfTheDay = async () => {
+    const getPhotoOfTheDay = async () => {
       const nasaApiKey = process.env.REACT_APP_NASA_API_KEY;
       const nasaApiUrl = "https://api.nasa.gov/planetary/apod";
 
-      let url = `${nasaApiUrl}?api_key=${nasaApiKey}&date=${date}`;
-      //console.log(url);
+      const url = `${nasaApiUrl}?api_key=${nasaApiKey}&date=${getFormattedDate(
+        date
+      )}`;
+
       try {
         const response = await fetch(url);
 
@@ -30,16 +26,12 @@ function useFetch(date) {
 
         setPhotoData(data);
         setLoading(false);
-
-        //console.log(data.url);
-        //console.log(data);
-        console.log(date);
       } catch (err) {
-        console.log("error", err);
+        console.error("error", err);
         setError(err);
       }
     };
-    photoOfTheDay();
+    getPhotoOfTheDay();
   }, [date]);
 
   return { photoData, loading, error };

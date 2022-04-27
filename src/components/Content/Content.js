@@ -9,7 +9,6 @@ import {
   PhotoTitle,
 } from "./Content.styles";
 
-//import DayPicker from "./DayPicker/DayPicker";
 import useFetch from "../../hooks/useFetch";
 import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
@@ -17,22 +16,12 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 export default function Content() {
-  const today = new Date();
-
-  // to force date to yesterday
-  today.setDate(today.getDate() - 1);
-
-  //const todayLocal = today.toLocaleDateString();
-  //console.log(todayLocal);
-  const [value, setValue] = useState(today);
-  //console.log(value);
-
-  let formattedDate = value.toISOString().split("T")[0];
-  const { photoData, loading, error } = useFetch(formattedDate);
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const { photoData, loading, error } = useFetch(selectedDate);
 
   if (loading) return <h2>Loading...</h2>;
   if (error) console.log(error);
-  //console.log(photoData);
+
   return (
     <>
       <ContentMain>
@@ -41,9 +30,9 @@ export default function Content() {
             <DatePicker
               maxDate={new Date()}
               label="Please select a Day"
-              value={value}
-              onChange={(newValue) => {
-                setValue(newValue);
+              value={selectedDate}
+              onChange={(newDate) => {
+                setSelectedDate(newDate);
               }}
               renderInput={(params) => <TextField {...params} />}
             />
