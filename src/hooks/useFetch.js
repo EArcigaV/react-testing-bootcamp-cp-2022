@@ -29,6 +29,7 @@ function useFetch(date) {
       } catch (err) {
         console.error("error", err);
         setError(err);
+        setLoading(false);
       }
     };
     getPhotoOfTheDay();

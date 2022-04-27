@@ -20,7 +20,7 @@ export default function Content() {
   const { photoData, loading, error } = useFetch(selectedDate);
 
   if (loading) return <h2>Loading...</h2>;
-  if (error) console.log(error);
+  if (error) return <h2>Error</h2>;
 
   return (
     <>
@@ -28,7 +28,7 @@ export default function Content() {
         <DatePickerClass>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker
-              maxDate={new Date()}
+              // maxDate={new Date()}
               label="Please select a Day"
               value={selectedDate}
               onChange={(newDate) => {
