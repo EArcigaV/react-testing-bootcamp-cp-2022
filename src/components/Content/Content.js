@@ -45,7 +45,7 @@ export default function Content() {
           <img src={photoData.url} alt="dayPhoto" />
         </Figure>
         <ContentMain2>
-          <Description>
+          <Description title="description">
             <PhotoTitle>{photoData.title}</PhotoTitle>
             {photoData.explanation}
           </Description>

@@ -20,7 +20,6 @@ function App() {
       </HeaderClass>
       <ContentClass>
         <Content />
-        {/* <BasicDatePicker /> */}
       </ContentClass>
       <FooterClass>
         <Footer />

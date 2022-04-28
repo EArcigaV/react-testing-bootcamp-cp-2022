@@ -27,7 +27,6 @@ function useFetch(date) {
         setPhotoData(data);
         setLoading(false);
       } catch (err) {
-        console.error("error", err);
         setError(err);
         setLoading(false);
       }
