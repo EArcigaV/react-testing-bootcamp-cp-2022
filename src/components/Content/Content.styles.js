@@ -18,6 +18,17 @@ export const DatePickerClass = styled.div`
   justify-content: center;
 `;
 
+export const ErrDatePickerClass = styled.div`
+  width: 100%;
+  height: 100px;
+  display: flex;
+  position: absolute;
+
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
 export const Figure = styled.div`
   overflow: hidden;
   border-radius: 30px;
@@ -62,6 +73,15 @@ export const Description = styled.div`
   }
 `;
 
+export const ErrDescription = styled.div`
+  font-size: 0.9rem;
+  padding: var(--padding);
+  margin-top: 180px;
+  @media (max-width: 640px) {
+    margin-top: 10px;
+  }
+`;
+
 export const SubContent = styled.div`
   display: flex;
   margin-top: 1rem;
@@ -89,6 +109,9 @@ export const PhotoTitle = styled.button`
   }
 `;
 
+export const ErrorMsg = styled.span`
+  color: red;
+`;
 // export const PhotoDate = styled.button`
 //   background: none;
 //   border: 1px solid var(--color);

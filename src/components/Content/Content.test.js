@@ -32,10 +32,12 @@ describe("testing useFetch", () => {
   });
 });
 
-test("renders content", () => {
-  render(<Content />);
-  const contentElement = screen.getByRole("heading", /Content Here/i);
-  expect(contentElement).toBeInTheDocument();
-});
+describe("date Picker", () => {
+  test("Should render a calendar picker", async () => {
+    render(<Content />);
 
-test.todo("renders DayPicker");
+    const pickerEl = await screen.findByLabelText(/Please select a Day/i);
+
+    expect(pickerEl).toBeInTheDocument();
+  });
+});
