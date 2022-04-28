@@ -20,7 +20,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 export default function Content() {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const { photoData, loading, error, unexpectedError } = useFetch(selectedDate);
+  const { photoData, loading, error } = useFetch(selectedDate);
 
   if (loading) return <h2>Loading...</h2>;
 
@@ -34,8 +34,6 @@ export default function Content() {
         <DatePickerWrapper>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker
-              // maxDate={new Date()}
-
               label="Please select a Day"
               value={selectedDate}
               onChange={(newDate) => {
