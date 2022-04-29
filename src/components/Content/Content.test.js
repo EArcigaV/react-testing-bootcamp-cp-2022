@@ -12,6 +12,14 @@ test("renders  Loading...", () => {
   expect(loadingElement).toBeInTheDocument();
 });
 
+describe("date Picker", () => {
+  test("Should render a calendar picker", async () => {
+    setup();
+    const pickerEl = await screen.findByLabelText(/Please select a Day/i);
+    expect(pickerEl).toBeInTheDocument();
+  });
+});
+
 describe("testing useFetch", () => {
   test("correctly renders Author(copyright) of the photo", async () => {
     setup();
@@ -39,13 +47,5 @@ describe("testing useFetch", () => {
     setup();
     const findImage = await screen.findByTitle("description");
     expect(findImage).toBeVisible();
-  });
-});
-
-describe("date Picker", () => {
-  test("Should render a calendar picker", async () => {
-    setup();
-    const pickerEl = await screen.findByLabelText(/Please select a Day/i);
-    expect(pickerEl).toBeInTheDocument();
   });
 });

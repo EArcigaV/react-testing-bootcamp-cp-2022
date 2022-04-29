@@ -3,7 +3,6 @@ import { getFormattedDate } from "../utils";
 function useFetch(date) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [unexpectedError, setUnexpectedError] = useState(false);
   const [photoData, setPhotoData] = useState({});
 
   useEffect(() => {
@@ -25,16 +24,11 @@ function useFetch(date) {
           throw new Error(`Request failed with status code ${response.status}`);
         }
 
-        if (response.status !== 200) {
-          setUnexpectedError(true);
-        }
-
         const data = await response.json();
 
         setPhotoData(data);
         setLoading(false);
         setError(null);
-        setUnexpectedError(false);
       } catch (err) {
         setLoading(false);
         setError(err.msg || "There was an error, please try again");
@@ -44,7 +38,7 @@ function useFetch(date) {
     return () => controller.abort();
   }, [date]);
 
-  return { photoData, loading, error, unexpectedError };
+  return { photoData, loading, error };
 }
 
 export default useFetch;

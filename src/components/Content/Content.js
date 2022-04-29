@@ -11,6 +11,7 @@ import {
   ErrDatePickerClass,
   ErrDescription,
 } from "./Content.styles";
+import { isFutureDate } from "../../utils";
 
 import useFetch from "../../hooks/useFetch";
 import TextField from "@mui/material/TextField";
@@ -44,7 +45,11 @@ export default function Content() {
                   helperText={
                     error ? (
                       <DatePickerMessageWrapper>
-                        <span>Please pick a valid date from calendar</span>
+                        <span>
+                          {!isFutureDate(selectedDate)
+                            ? "There was an error, please try again."
+                            : "Please do not select a future date."}
+                        </span>
                       </DatePickerMessageWrapper>
                     ) : (
                       ""
@@ -57,18 +62,12 @@ export default function Content() {
           </LocalizationProvider>
         </DatePickerWrapper>
 
-        <Figure>
-          {error && (
-            <>
-              <h1>-</h1>
-              <h2>Now showing...</h2>
-            </>
-          )}
+        <Figure hide={error}>
           <h2 label="photo-title">Photo of the Day ( {photoData.date} )</h2>
           <h3>{photoData.copyright && `by: ${photoData.copyright}`}</h3>
           <img src={photoData.url} alt="dayPhoto" />
         </Figure>
-        <ContentMain2>
+        <ContentMain2 hide={error}>
           <DescriptionWrapper title="description">
             <PhotoTitle>{photoData.title}</PhotoTitle>
             {photoData.explanation}

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const ContentMain = styled.div`
   display: grid;
@@ -33,8 +33,14 @@ export const Figure = styled.div`
   padding: var(--padding);
   margin-top: 50px;
   color: hsl(200, 50%, 50%);
-
   font-size: 12px;
+
+  ${({ hide }) =>
+    hide &&
+    css`
+      visibility: hidden;
+    `}
+
   h3 {
     color: rgb(11, 191, 240);
   }
@@ -49,6 +55,7 @@ export const Figure = styled.div`
     transition: 200ms transform ease-in-out;
     border-radius: 30px;
   }
+
   @media (max-width: 640px) {
     img {
       height: auto;
@@ -59,6 +66,12 @@ export const Figure = styled.div`
 export const ContentMain2 = styled.div`
   border: none;
   --padding: 30px;
+
+  ${({ hide }) =>
+    hide &&
+    css`
+      visibility: hidden;
+    `}
 `;
 
 export const Description = styled.div`
