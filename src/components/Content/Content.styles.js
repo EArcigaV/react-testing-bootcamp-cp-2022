@@ -13,7 +13,6 @@ export const DatePickerClass = styled.div`
   height: 100px;
   display: flex;
   position: absolute;
-
   align-items: center;
   justify-content: center;
 `;
@@ -23,7 +22,6 @@ export const ErrDatePickerClass = styled.div`
   height: 100px;
   display: flex;
   position: absolute;
-
   align-items: center;
   justify-content: center;
   margin-top: 20px;
@@ -35,7 +33,7 @@ export const Figure = styled.div`
   padding: var(--padding);
   margin-top: 50px;
   color: hsl(200, 50%, 50%);
-  /* border-bottom: 1px solid; */
+
   font-size: 12px;
   h3 {
     color: rgb(11, 191, 240);
@@ -45,7 +43,6 @@ export const Figure = styled.div`
     display: block;
     width: 100%;
     height: 400px;
-    /* max-height: 200px; */
     aspect-ratio: 16 / 9;
     object-fit: cover;
     object-position: center;
@@ -112,8 +109,3 @@ export const PhotoTitle = styled.button`
 export const ErrorMsg = styled.span`
   color: red;
 `;
-// export const PhotoDate = styled.button`
-//   background: none;
-//   border: 1px solid var(--color);
-//   color: var(--color);
-// `;

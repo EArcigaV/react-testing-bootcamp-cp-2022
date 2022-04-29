@@ -5,12 +5,9 @@ import {
   FooterClass,
 } from "./App.styles";
 
-import "./App.css";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Content from "./components/Content/Content";
-//import DayPicker from "./components/Content/DayPicker/DayPicker";
-import Footer from "./components/Footer/Footer";
-//import BasicDatePicker from "./basicDatePicker";
 
 function App() {
   return (

@@ -29,3 +29,33 @@ exports[`renders App correctly  1`] = `
   </div>
 </div>
 `;
+
+exports[`renders App correctly 1`] = `
+<div>
+  <div
+    class="sc-bczRLJ laIWnM"
+  >
+    <div
+      class="sc-gsnTZi dhBUzX"
+    >
+      <h3>
+        My testing-React Project 2022
+      </h3>
+    </div>
+    <div
+      class="sc-dkzDqf fUCNkN"
+    >
+      <h2>
+        Loading...
+      </h2>
+    </div>
+    <div
+      class="sc-hKMtZM eyVwxs"
+    >
+      <div>
+        Project created during Wizeline Academy React Testing Bootcamp
+      </div>
+    </div>
+  </div>
+</div>
+`;
