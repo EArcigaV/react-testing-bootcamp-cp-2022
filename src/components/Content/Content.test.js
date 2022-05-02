@@ -1,5 +1,5 @@
-import { render, screen, waitFor, fireEvent } from "@testing-library/react";
-//import userEvent from "@testing-library/user-event";
+import { render, screen, fireEvent } from "@testing-library/react";
+
 import Content from "./Content";
 
 const setup = () => {
