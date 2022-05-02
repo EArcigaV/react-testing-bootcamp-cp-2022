@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
-
+import { render, screen, waitFor, fireEvent } from "@testing-library/react";
+//import userEvent from "@testing-library/user-event";
 import Content from "./Content";
 
 const setup = () => {
@@ -48,4 +48,22 @@ describe("testing useFetch", () => {
     const findImage = await screen.findByTitle("description");
     expect(findImage).toBeVisible();
   });
+});
+
+it("When the user selects a future  date value , the app should show a message ...", async () => {
+  setup();
+
+  const dateInputEl = await screen.findByLabelText("Please select a Day");
+
+  fireEvent.change(dateInputEl, {
+    target: { value: "2023-05-24" },
+  });
+
+  const errDisplayEl = await screen.findByLabelText("error-display");
+
+  fireEvent.change(errDisplayEl, {
+    target: { error: true, isFutureDate: true },
+  });
+
+  expect(errDisplayEl).toBeInTheDocument();
 });

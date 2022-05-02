@@ -42,9 +42,10 @@ export default function Content() {
               }}
               renderInput={(params) => (
                 <TextField
+                  aria-label="error-display"
                   helperText={
                     error ? (
-                      <DatePickerMessageWrapper>
+                      <DatePickerMessageWrapper aria-label="myMsg">
                         <span>
                           {!isFutureDate(selectedDate)
                             ? "There was an error, please try again."
