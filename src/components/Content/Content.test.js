@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-
+import { addDays } from "date-fns";
 import Content from "./Content";
 
 const setup = () => {
@@ -52,11 +52,12 @@ describe("testing useFetch", () => {
 
 it("When the user selects a future  date value , the app should show a message ...", async () => {
   setup();
+  const futureDate = addDays(new Date(), +1);
 
   const dateInputEl = await screen.findByLabelText("Please select a Day");
 
   fireEvent.change(dateInputEl, {
-    target: { value: "2023-05-24" },
+    target: { value: futureDate },
   });
 
   const errDisplayEl = await screen.findByLabelText("error-display");
